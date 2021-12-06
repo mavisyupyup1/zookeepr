@@ -45,6 +45,10 @@ function filterByQuery(query, animalsArray){
   return filteredResults;
 }
 
+function findById(id, animalsArray){
+  const result = animalsArray.filter(animal =>animal.id === id)[0];
+  return result;
+}
 
 app.get('/api/animals', (req, res) => {
    let results =animals;
@@ -53,7 +57,15 @@ app.get('/api/animals', (req, res) => {
    }
    res.json(results)
   });
-
+// a parameter route must come after the other GET route
+app.get('/api/animals/:id', (req, res) => {
+  const result  = findById(req.params.id,animals);
+  if(resizeBy){
+   res.json(result)
+  } else {
+    res.send(404);
+  }
+  });
   
 // need a method for the server to listen hence chain the listen() onto the server to do so 
 app.listen(PORT,()=>{
