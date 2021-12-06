@@ -57,5 +57,5 @@ app.get('/api/animals', (req, res) => {
   
 // need a method for the server to listen hence chain the listen() onto the server to do so 
 app.listen(PORT,()=>{
-    console.log('API server now on port ${PORT}!')
+    console.log(`API server now on port ${PORT}!`)
 })
