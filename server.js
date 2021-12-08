@@ -79,7 +79,7 @@ function validateAnimals(animal){
   if(!animal.diet || typeof animal.diet !== 'string'){
     return false;
   }
-  return true;!
+  return true;
 }
 
 app.get('/api/animals', (req, res) => {

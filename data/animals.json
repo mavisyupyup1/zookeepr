@@ -126,6 +126,16 @@
         "playful"
       ],
       "id": "12"
+    },
+    {
+      "name": "Amber",
+      "species": "Dinosaur",
+      "diet": "omnivore",
+      "personalityTraits": [
+        "playful",
+        "fearless"
+      ],
+      "id": "13"
     }
   ]
 }
