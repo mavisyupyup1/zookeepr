@@ -15,6 +15,9 @@ const app = express();
 app.use(express.urlencoded({extended:true}))
 // parse incoming JSON data
 app.use(express.json())
+// express.js middleware that instructs the server to make certain files readily available
+app.use(express.static('public'));
+
 // create separate function to handle the filter (instead of inside the call back function). this function will take in the req.query as an argument and return a new filtered array
 function filterByQuery(query, animalsArray){
   let personalityTraitsArray = [];
@@ -112,7 +115,23 @@ if(!validateAnimals(req.body)){
   const animal = createNewAnimal(req.body, animals)
   res.json(req.body)}
 })
-  
+//'/' birngs to the root route of the server to create a homepage for a server.and it returns an html file. telling them where to find the find and send back to the client
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/index.html'));
+})
+
+//set up GET route for animals.html page too
+app.get('/animals',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/animals.html'));
+})
+
+app.get('/zookeepers',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/zookeepers.html'));
+});
+
+app.get('*',(req, res)=>{
+  res.sendFile(path.join(__dirname,'./public/index.html'))
+})
 // need a method for the server to listen hence chain the listen() onto the server to do so 
 app.listen(PORT,()=>{
     console.log(`API server now on port ${PORT}!`)

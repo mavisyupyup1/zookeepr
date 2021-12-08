@@ -136,6 +136,17 @@
         "fearless"
       ],
       "id": "13"
+    },
+    {
+      "name": "Fredd",
+      "species": "Tyrannosaurus",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "zany",
+        "anxious"
+      ],
+      "id": "14"
     }
   ]
 }
